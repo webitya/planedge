@@ -1,0 +1,39 @@
+.projects-header {
+  padding-top: var(--spacing-xl);
+}
+
+.projects-header h1 {
+  font-size: 3rem;
+  color: var(--color-gunmetal);
+  position: relative;
+  display: inline-block;
+}
+
+.projects-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-gunmetal);
+}
+
+.projects-header p {
+  font-size: 1.2rem;
+  color: var(--color-gray);
+  margin-top: 1rem;
+}
+
+.projects-grid-full {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .projects-grid-full {
+    grid-template-columns: 1fr;
+  }
+}

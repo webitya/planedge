@@ -1,0 +1,130 @@
+.contact-header {
+  padding-top: var(--spacing-xl);
+}
+
+.contact-header h1 {
+  font-size: 3rem;
+  color: var(--color-gunmetal);
+  position: relative;
+  display: inline-block;
+}
+
+.contact-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-gunmetal);
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: var(--color-gray);
+  margin-top: 1rem;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+  color: var(--color-gunmetal);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  color: var(--color-dark);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-icon {
+  background-color: var(--color-gunmetal);
+  color: var(--color-white);
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-item h3 {
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
+  color: var(--color-gunmetal);
+}
+
+.info-item p {
+  color: var(--color-gray);
+  margin: 0;
+}
+
+.contact-form-container {
+  background-color: var(--color-off-white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--color-gunmetal);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 4px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-gunmetal);
+}
+
+.status-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.status-message.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-message.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
