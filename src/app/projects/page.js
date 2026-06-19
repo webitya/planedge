@@ -1,5 +1,4 @@
 import ProjectCard from '@/components/ProjectCard';
-import './projects.css';
 
 export const metadata = {
   title: 'Projects | Planedge Architect',
@@ -59,14 +58,14 @@ export default function Projects() {
   ];
 
   return (
-    <div className="projects-page section-padding">
-      <div className="container">
-        <div className="projects-header text-center mb-lg mt-lg animate-fade-in">
-          <h1>Our Portfolio</h1>
-          <p>A curated selection of our finest architectural endeavors.</p>
+    <div className="bg-gray-50 py-24 min-h-screen">
+      <div className="w-full max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16 pt-12 opacity-0 animate-text-reveal">
+          <h1 className="font-heading text-4xl md:text-6xl font-bold text-[#2C3539] mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#2C3539]">Our Portfolio</h1>
+          <p className="text-xl text-gray-500 mt-6 max-w-2xl mx-auto">A curated selection of our finest architectural endeavors.</p>
         </div>
 
-        <div className="projects-grid-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
           {allProjects.map(project => (
             <ProjectCard key={project.id} {...project} />
           ))}
