@@ -6,24 +6,36 @@ import { usePathname } from 'next/navigation';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 
 const services = [
-  'Architectural Design',
-  'Interior Design',
-  'Landscape Design',
-  '3D Elevations',
-  'Renders',
-  'Sustainable Home Solutions',
-  'Space Planning & Renovations',
-  'Professional Advice',
-  'Consultation',
+  { name: 'Architectural Design', slug: 'architectural-design' },
+  { name: 'Interior Design',       slug: 'interior-design' },
+  { name: 'Landscape Design',      slug: 'landscape-design' },
+  { name: '3D Elevations',         slug: '3d-elevations' },
+  { name: 'Renders',               slug: 'renders' },
+  { name: 'Sustainable Home Solutions', slug: 'sustainable-home-solutions' },
+  { name: 'Space Planning & Renovations', slug: 'space-planning-renovations' },
+  { name: 'Professional Advice',   slug: 'professional-advice' },
+  { name: 'Consultation',          slug: 'consultation' },
 ];
 
-const portfolio = ['Residential', 'Commercial', 'Interiors'];
+const portfolio = [
+  { name: 'Residential', href: '/projects/residential' },
+  { name: 'Commercial',  href: '/projects/commercial' },
+  { name: 'Interiors',   href: '/projects/interiors' },
+];
+
+const navLinks = [
+  { name: 'Home',     href: '/' },
+  { name: 'About',    href: '/about' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Gallery',  href: '/gallery' },
+  { name: 'Contact',  href: '/contact' },
+];
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState(null); // 'services' | 'portfolio' | null
-  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen]   = useState(false);
+  const [drawerOpen, setDrawerOpen]   = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
+  const [scrolled, setScrolled]       = useState(false);
   const pathname = usePathname();
 
   const isHomePage = pathname === '/';
@@ -38,6 +50,12 @@ const Navbar = () => {
     document.body.style.overflow = drawerOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [drawerOpen]);
+
+  useEffect(() => {
+    setDrawerOpen(false);
+    setMobileOpen(false);
+    setActiveSection(null);
+  }, [pathname]);
 
   const toggle = (section) => {
     setActiveSection(prev => (prev === section ? null : section));
@@ -69,11 +87,17 @@ const Navbar = () => {
           <div className="flex items-center gap-6">
             {/* Desktop Nav Links */}
             <div className="hidden md:flex gap-8">
-              <Link href="/" className="font-medium text-sm uppercase tracking-wider transition-colors duration-200 hover:text-gray-400">Home</Link>
-              <Link href="/about" className="font-medium text-sm uppercase tracking-wider transition-colors duration-200 hover:text-gray-400">About</Link>
-              <Link href="/projects" className="font-medium text-sm uppercase tracking-wider transition-colors duration-200 hover:text-gray-400">Projects</Link>
-              <Link href="/gallery" className="font-medium text-sm uppercase tracking-wider transition-colors duration-200 hover:text-gray-400">Gallery</Link>
-              <Link href="/contact" className="font-medium text-sm uppercase tracking-wider transition-colors duration-200 hover:text-gray-400">Contact</Link>
+              {navLinks.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-primary font-medium text-sm uppercase tracking-wider transition-colors duration-200 hover:opacity-60 ${
+                    pathname === link.href ? 'opacity-60' : ''
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
 
             {/* Mobile Nav Toggle */}
@@ -84,7 +108,7 @@ const Navbar = () => {
             {/* Drawer Hamburger */}
             <button
               onClick={() => setDrawerOpen(true)}
-              aria-label="Open services drawer"
+              aria-label="Open navigation drawer"
               className="flex flex-col justify-center items-end gap-[5px] w-8 h-8 cursor-pointer group shrink-0"
             >
               <span className={`block h-[2px] w-6 transition-all duration-300 group-hover:w-8 ${isSolid ? 'bg-[#2C3539]' : 'bg-white'}`}></span>
@@ -96,96 +120,158 @@ const Navbar = () => {
 
         {/* Mobile Dropdown */}
         <div className={`absolute top-full left-0 w-full bg-white shadow-lg text-[#2C3539] flex flex-col p-6 gap-4 font-heading text-lg transition-all duration-300 md:hidden ${mobileOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'}`}>
-          <Link href="/" onClick={() => setMobileOpen(false)} className="hover:text-gray-500 transition-colors">Home</Link>
-          <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-gray-500 transition-colors">About</Link>
-          <Link href="/projects" onClick={() => setMobileOpen(false)} className="hover:text-gray-500 transition-colors">Projects</Link>
-          <Link href="/gallery" onClick={() => setMobileOpen(false)} className="hover:text-gray-500 transition-colors">Gallery</Link>
-          <Link href="/contact" onClick={() => setMobileOpen(false)} className="hover:text-gray-500 transition-colors">Contact</Link>
+          {navLinks.map(link => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="hover:text-gray-500 transition-colors font-primary"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <hr className="border-gray-200" />
+          <p className="text-xs uppercase tracking-widest text-gray-400 font-heading font-semibold">Services</p>
+          {services.map(s => (
+            <Link
+              key={s.slug}
+              href={`/services/${s.slug}`}
+              onClick={() => setMobileOpen(false)}
+              className="text-sm hover:text-gray-500 transition-colors pl-2 font-primary"
+            >
+              {s.name}
+            </Link>
+          ))}
         </div>
       </nav>
 
       {/* ── Full-Width Drawer ── */}
       <div className={`fixed inset-0 z-[100] transition-all duration-500 ${drawerOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
 
-        {/* Full-width dark panel */}
-        <div className={`absolute top-0 right-0 h-full w-full bg-[#0d1012] text-white flex flex-col justify-center items-center px-6 py-24 overflow-y-auto transition-transform duration-500 ease-in-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/30"
+          onClick={closeDrawer}
+          aria-hidden="true"
+        />
 
-          {/* Close button */}
-          <button
-            onClick={closeDrawer}
-            aria-label="Close drawer"
-            className="absolute top-6 right-8 text-white/60 hover:text-white transition-colors text-5xl font-extralight leading-none"
-          >
-            &times;
-          </button>
+        {/* Panel with BG image + gunmetal overlay */}
+        <div
+          className={`absolute top-0 right-0 h-full w-full overflow-y-auto transition-transform duration-500 ease-in-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          {/* Gunmetal gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2C3539]/95 via-[#1a2024]/92 to-[#0d1012]/96 pointer-events-none" />
 
-          {/* Centered content wrapper */}
-          <div className="w-full max-w-xl mx-auto flex flex-col items-center gap-0">
+          {/* ── All drawer content (relative z-10 to sit above overlay) ── */}
+          <div className="relative z-10 flex flex-col justify-center items-center min-h-full px-6 py-16">
 
-            {/* ── SERVICES Accordion ── */}
-            <div className="w-full border-b border-white/10">
-              <button
-                onClick={() => toggle('services')}
-                className="w-full flex justify-center items-center gap-6 py-7 group"
-              >
-                <h2 className="font-heading text-3xl md:text-4xl font-extralight tracking-[10px] uppercase text-white/60 group-hover:text-white transition-colors duration-300">
-                  Services
-                </h2>
-                <FiChevronDown
-                  size={24}
-                  className={`text-white/40 group-hover:text-white transition-all duration-300 ${activeSection === 'services' ? 'rotate-180' : 'rotate-0'}`}
-                />
-              </button>
+            {/* Close button */}
+            <button
+              onClick={closeDrawer}
+              aria-label="Close drawer"
+              className="absolute top-5 right-7 text-white/50 hover:text-white transition-colors text-4xl font-extralight leading-none"
+            >
+              &times;
+            </button>
 
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeSection === 'services' ? 'max-h-[600px] opacity-100 pb-8' : 'max-h-0 opacity-0'}`}>
-                <ul className="flex flex-col items-center gap-5 pt-2">
-                  {services.map((item, i) => (
-                    <li key={i}>
-                      <Link
-                        href="/contact"
-                        onClick={closeDrawer}
-                        className="text-xs md:text-sm uppercase tracking-[4px] text-white/70 hover:text-white hover:tracking-[6px] transition-all duration-300"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            {/* Content wrapper — compact spacing */}
+            <div className="w-full max-w-lg mx-auto flex flex-col items-center">
+
+              {/* Quick nav links */}
+              <div className="flex flex-wrap justify-center gap-5 mb-8">
+                {navLinks.map(link => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={closeDrawer}
+                    className={`font-heading text-[11px] uppercase tracking-[3px] transition-colors duration-200 ${
+                      pathname === link.href
+                        ? 'text-white'
+                        : 'text-white/35 hover:text-white/80'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
               </div>
-            </div>
 
-            {/* ── PORTFOLIO Accordion ── */}
-            <div className="w-full border-b border-white/10">
-              <button
-                onClick={() => toggle('portfolio')}
-                className="w-full flex justify-center items-center gap-6 py-7 group"
-              >
-                <h2 className="font-heading text-3xl md:text-4xl font-extralight tracking-[10px] uppercase text-white/60 group-hover:text-white transition-colors duration-300">
-                  Portfolio
-                </h2>
-                <FiChevronDown
-                  size={24}
-                  className={`text-white/40 group-hover:text-white transition-all duration-300 ${activeSection === 'portfolio' ? 'rotate-180' : 'rotate-0'}`}
-                />
-              </button>
+              {/* ── SERVICES Accordion ── */}
+              <div className="w-full border-b border-white/10">
+                <button
+                  onClick={() => toggle('services')}
+                  className="w-full flex justify-center items-center gap-4 py-5 group cursor-pointer"
+                >
+                  <h2 className="font-heading text-2xl md:text-3xl font-extralight tracking-[8px] uppercase text-white/50 group-hover:text-white transition-colors duration-300">
+                    Services
+                  </h2>
+                  <FiChevronDown
+                    size={20}
+                    className={`text-white/30 group-hover:text-white transition-all duration-300 ${activeSection === 'services' ? 'rotate-180' : 'rotate-0'}`}
+                  />
+                </button>
 
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeSection === 'portfolio' ? 'max-h-[300px] opacity-100 pb-8' : 'max-h-0 opacity-0'}`}>
-                <ul className="flex flex-col items-center gap-5 pt-2">
-                  {portfolio.map((item, i) => (
-                    <li key={i}>
-                      <Link
-                        href="/projects"
-                        onClick={closeDrawer}
-                        className="text-xs md:text-sm uppercase tracking-[4px] text-white/70 hover:text-white hover:tracking-[6px] transition-all duration-300"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeSection === 'services' ? 'max-h-[500px] opacity-100 pb-6' : 'max-h-0 opacity-0'}`}>
+                  <ul className="flex flex-col items-center gap-3 pt-1">
+                    {services.map((item) => (
+                      <li key={item.slug}>
+                        <Link
+                          href={`/services/${item.slug}`}
+                          onClick={closeDrawer}
+                          className={`font-heading text-[11px] md:text-xs uppercase tracking-[3px] transition-all duration-300 hover:tracking-[5px] ${
+                            pathname === `/services/${item.slug}`
+                              ? 'text-white'
+                              : 'text-white/55 hover:text-white/90'
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
 
+              {/* ── PORTFOLIO Accordion ── */}
+              <div className="w-full border-b border-white/10">
+                <button
+                  onClick={() => toggle('portfolio')}
+                  className="w-full flex justify-center items-center gap-4 py-5 group cursor-pointer"
+                >
+                  <h2 className="font-heading text-2xl md:text-3xl font-extralight tracking-[8px] uppercase text-white/50 group-hover:text-white transition-colors duration-300">
+                    Portfolio
+                  </h2>
+                  <FiChevronDown
+                    size={20}
+                    className={`text-white/30 group-hover:text-white transition-all duration-300 ${activeSection === 'portfolio' ? 'rotate-180' : 'rotate-0'}`}
+                  />
+                </button>
+
+                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeSection === 'portfolio' ? 'max-h-[250px] opacity-100 pb-6' : 'max-h-0 opacity-0'}`}>
+                  <ul className="flex flex-col items-center gap-3 pt-1">
+                    {portfolio.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          onClick={closeDrawer}
+                          className="font-heading text-[11px] md:text-xs uppercase tracking-[3px] text-white/55 hover:text-white/90 hover:tracking-[5px] transition-all duration-300"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+            </div>
           </div>
         </div>
       </div>

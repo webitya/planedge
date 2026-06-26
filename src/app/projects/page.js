@@ -2,7 +2,7 @@ import ProjectCard from '@/components/ProjectCard';
 
 export const metadata = {
   title: 'Projects | Planedge Architect',
-  description: 'Explore our portfolio of innovative architectural projects across India.',
+  description: 'Explore our innovative architectural projects across India.',
 };
 
 export default function Projects() {
@@ -61,7 +61,7 @@ export default function Projects() {
     <div className="bg-gray-50 py-24 min-h-screen">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="text-center mb-16 pt-12 opacity-0 animate-text-reveal">
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-[#2C3539] mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#2C3539]">Our Portfolio</h1>
+          <h1 className="font-heading text-4xl md:text-6xl font-bold text-[#2C3539] mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#2C3539]">Our Projects</h1>
           <p className="text-xl text-gray-500 mt-6 max-w-2xl mx-auto">A curated selection of our finest architectural endeavors.</p>
         </div>
 

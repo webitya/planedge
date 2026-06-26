@@ -1,0 +1,178 @@
+// Shared service data used by all individual service pages
+export const servicesData = {
+  'architectural-design': {
+    title: 'Architectural Design',
+    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '01',
+    heading: 'Innovative Architecture with an Indian Soul',
+    description:
+      'Our architectural design service combines contemporary aesthetics with functional excellence. We believe in creating structures that are culturally rooted, environmentally friendly, and structurally sound. Every project is tailored to its local context and the client\'s aspirations, resulting in iconic landmarks that breathe life into the landscape.',
+    features: [
+      'Comprehensive site analysis & context study',
+      'Conceptualization and space programming',
+      'High-fidelity 2D plans and functional zoning',
+      'Structural, MEP, and system integration coordination',
+      'Support for municipal approvals and building code clearance',
+    ],
+    image: 'https://images.unsplash.com/photo-1503387762-592ded58c454?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'interior-design',
+    nextTitle: 'Interior Design',
+  },
+  'interior-design': {
+    title: 'Interior Design',
+    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '02',
+    heading: 'Bespoke & Curated Living Spaces',
+    description:
+      'Our interior design services bring harmony, balance, and personality to your homes and offices. We work on space optimization, material selection, custom millwork, and lighting design. We believe that interiors should be an extension of who you are, blending visual luxury with tactile comfort.',
+    features: [
+      'Tailored space planning & furniture layouts',
+      'Material selection, mood boards & color theory',
+      'Custom cabinetry, millwork & wardrobe design',
+      'Lighting design, acoustics & sensory curation',
+      'Artwork curation & decorative styling',
+    ],
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'landscape-design',
+    nextTitle: 'Landscape Design',
+  },
+  'landscape-design': {
+    title: 'Landscape Design',
+    heroImage: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '03',
+    heading: 'Harmonizing Nature and Architecture',
+    description:
+      'We design landscapes that blur the lines between indoor luxury and outdoor serenity. Our approach focuses on local ecology, native plant varieties, smart water management, and hardscape detailing. We create gardens, courtyards, terraces, and open-air zones that serve as peaceful sanctuaries.',
+    features: [
+      'Hardscape detailing (patios, pathways, decks)',
+      'Softscape selection & native vegetation design',
+      'Smart irrigation systems & water-conservation planning',
+      'Architectural water features & garden lighting',
+      'Ecological restoration & soil enrichment advice',
+    ],
+    image: 'https://images.unsplash.com/photo-1558904541-efa8c3a30fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: '3d-elevations',
+    nextTitle: '3D Elevations',
+  },
+  '3d-elevations': {
+    title: '3D Elevations',
+    heroImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '04',
+    heading: 'Visualize Facades in Vivid Detail',
+    description:
+      "Experience the look and feel of your building's exterior before starting construction. Our 3D elevation services provide highly accurate rendering of textures, materials, shadows, and natural lighting. We test different architectural facades, dynamic materials, and color combinations to find the perfect signature look.",
+    features: [
+      'Photorealistic exterior modeling & textures',
+      'Iterative testing of materials (wood, stone, metal, glass)',
+      'Day/night lighting studies and atmospheric renderings',
+      'Modern, classical, and vernacular Indian facade styles',
+      'Walkthrough-ready high-poly architectural assets',
+    ],
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'renders',
+    nextTitle: 'Renders',
+  },
+  renders: {
+    title: 'Renders',
+    heroImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '05',
+    heading: 'High-Fidelity Spatial Visualizations',
+    description:
+      'We translate abstract blueprints into hyper-realistic 3D renderings that capture every subtle nuance. Using cutting-edge global illumination, exact material mapping, and realistic assets, we produce images perfect for design validation, property marketing, and client presentations.',
+    features: [
+      '4K ultra-high-resolution rendering engines',
+      'Physics-based material assets & accurate texture mapping',
+      "Detailed staging (furniture, people, vegetation, vehicles)",
+      "Interior, exterior, and aerial bird's-eye visualizations",
+      'Rapid design revisions and multi-angle views',
+    ],
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'sustainable-home-solutions',
+    nextTitle: 'Sustainable Home Solutions',
+  },
+  'sustainable-home-solutions': {
+    title: 'Sustainable Home Solutions',
+    heroImage: 'https://images.unsplash.com/photo-1513828722001-c21d48a291a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '06',
+    heading: 'Eco-Friendly Living & Carbon Neutrality',
+    description:
+      'We build for tomorrow. Our sustainable home solutions incorporate passive thermal design, natural ventilation, locally sourced non-toxic materials, and green energy. We create spaces that consume less energy, lower utility bills, and enhance the indoor air quality for your family.',
+    features: [
+      'Passive solar design & building orientation',
+      'Rainwater harvesting & greywater filtration planning',
+      'Locally sourced mud-brick, fly-ash, and bamboo integration',
+      'High-efficiency building envelopes and smart HVAC zoning',
+      'Zero-VOC paints & eco-certified insulation selection',
+    ],
+    image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'space-planning-renovations',
+    nextTitle: 'Space Planning & Renovations',
+  },
+  'space-planning-renovations': {
+    title: 'Space Planning & Renovations',
+    heroImage: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '07',
+    heading: 'Reimagine and Revitalize Existing Structures',
+    description:
+      'Breathe new life into your existing properties. Our renovation and spatial redesign services optimize layouts to meet contemporary lifestyles. Whether expanding a single room, creating an open floor plan, or retrofitting a historical structure, we blend safety with modern aesthetics.',
+    features: [
+      'Structural load-bearing assessments & safety feasibility',
+      'Spatial reallocation & open-concept design transitions',
+      'Modernization of plumbing, electrical, and HVAC networks',
+      'Premium material retrofitting and restoration',
+      'Preservation of heritage elements with modern integration',
+    ],
+    image: 'https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'professional-advice',
+    nextTitle: 'Professional Advice',
+  },
+  'professional-advice': {
+    title: 'Professional Advice',
+    heroImage: 'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '08',
+    heading: 'Strategic Architecture & Feasibility Advisory',
+    description:
+      'Avoid costly mistakes before you break ground. Our professional advisory service provides detailed reports on land zoning, structural safety, cost estimation, and legal building compliance. We give you a clear roadmap of risks and costs so your project is structurally and financially viable.',
+    features: [
+      'Soil test evaluation and foundation style advice',
+      'Project budgeting, cost estimation & material bidding support',
+      'Zoning, setback & municipal law compliance audit',
+      'Structural health monitoring and reinforcement advisory',
+      'Selection of certified builders and contract templates',
+    ],
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'consultation',
+    nextTitle: 'Consultation',
+  },
+  consultation: {
+    title: 'Consultation',
+    heroImage: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+    index: '09',
+    heading: 'Personalized Collaborative Design Sessions',
+    description:
+      "Have an architectural idea but don't know where to start? Our collaborative consultation sessions connect you directly with senior architects. We review your land plans, sketch initial spatial flow diagrams, clarify styling doubts, and help you finalize your project's aesthetic goals.",
+    features: [
+      'Design brief drafting & stylistic alignment sessions',
+      'Feedback on third-party drawings or preliminary sketches',
+      'Guided material selection for flooring, walls & lighting',
+      'Strategic project phasing and milestone planning',
+      'Custom design mood boards tailored to your climate & culture',
+    ],
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    nextSlug: 'architectural-design',
+    nextTitle: 'Architectural Design',
+  },
+};
+
+// Ordered list for the "All Services" nav strip
+export const servicesOrder = [
+  'architectural-design',
+  'interior-design',
+  'landscape-design',
+  '3d-elevations',
+  'renders',
+  'sustainable-home-solutions',
+  'space-planning-renovations',
+  'professional-advice',
+  'consultation',
+];
