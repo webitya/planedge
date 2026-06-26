@@ -77,7 +77,7 @@ const Navbar = () => {
   return (
     <>
       <nav className={navbarClasses}>
-        <div className="w-full max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div className="w-full px-6 md:px-10 flex justify-between items-center">
 
           {/* Logo */}
           <Link href="/" className="font-heading text-2xl font-extrabold tracking-[2px] transition-transform duration-300 hover:scale-105">
